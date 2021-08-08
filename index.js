@@ -7,6 +7,19 @@ const port = process.env.PORT || 3001;
 // app.use(express.urlencoded())
 app.use(express.json())
 
+let familys = [
+    {
+        nama: 'Muhamad',
+        tinggi: 1.66,
+        berat: 55,
+    },
+    {
+        nama: 'Hilman',
+        tinggi: 1.65,
+        berat: 45,
+    }
+]
+
 function countBmi(berat, tinggi) {
     let result = 0
     result += berat / (tinggi ** 2)
@@ -26,6 +39,10 @@ function category(input) {
     }
 
 }
+
+app.get('/', (req, res) => {
+    res.json(familys)
+})
 
 app.post('/bmi', (req, res) => {
     let newFamily = req.body
