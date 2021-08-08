@@ -2,7 +2,7 @@ const express = require("express");
 
 const app = express();
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 // app.use(express.urlencoded())
 app.use(express.json())
@@ -39,6 +39,10 @@ function category(input) {
     }
 
 }
+
+app.get('/', (req, res) => {
+    res.send('Welcome')
+})
 
 app.get('/users', (req, res) => {
     res.json(familys)
