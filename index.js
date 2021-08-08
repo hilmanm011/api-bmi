@@ -49,13 +49,14 @@ app.post('/bmi', (req, res) => {
     let bmi = countBmi(newFamily.berat, newFamily.tinggi)
     let cat = category(bmi)
 
-    familys.push(res.json({
+    familys.push({
         nama: newFamily.nama,
         tinggi: newFamily.tinggi,
         berat: newFamily.berat,
         bmi: bmi,
         category: cat
-    }))
+    })
+    res.json(familys)
     
 })
 
