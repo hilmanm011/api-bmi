@@ -40,7 +40,7 @@ function category(input) {
 
 }
 
-app.get('/', (req, res) => {
+app.get('/users', (req, res) => {
     res.json(familys)
 })
 
